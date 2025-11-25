@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Schedule Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Student Schedule Builder</h1>
+            <p class="subtitle">Create your personalized class schedule and export it to either an Outlook or Google Calendar</p>
+        </header>
+        <div class="panels-container">
+            <div class="panel">
+                <h2 class="panel-title">Add New Subject</h2>
+                <form id="subjectForm">
+                    <div class="form-group">
+                        <label for="subjectName">Subject Name</label>
+                        <input type="text" id="subjectName" required placeholder="e.g., Web Technologies">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="e.g., Main Building, Room 305">
+                    </div>
+
+                    <!-- Group Add Option -->
+                    <div class="form-group">
+                        <label>Group Add (Same Time for Multiple Days)</label>
+                        <div class="days-checkbox">
+                            <div class="day-checkbox"><input type="checkbox" name="groupDays" value="MO" id="groupMon"><label for="groupMon">Monday</label></div>
+                            <div class="day-checkbox"><input type="checkbox" name="groupDays" value="TU" id="groupTue"><label for="groupTue">Tuesday</label></div>
+                            <div class="day-checkbox"><input type="checkbox" name="groupDays" value="WE" id="groupWed"><label for="groupWed">Wednesday</label></div>
+                            <div class="day-checkbox"><input type="checkbox" name="groupDays" value="TH" id="groupThu"><label for="groupThu">Thursday</label></div>
+                            <div class="day-checkbox"><input type="checkbox" name="groupDays" value="FR" id="groupFri"><label for="groupFri">Friday</label></div>
+                        </div>
+                        <div class="time-inputs" style="margin-top:0.5rem">
+                            <div><label for="groupStart">Start</label><input type="time" id="groupStart"></div>
+                            <div><label for="groupEnd">End</label><input type="time" id="groupEnd"></div>
+                        </div>
+                        <button type="button" id="addGroupBtn" style="margin-top:0.5rem">Add Group Sessions</button>
+                    </div>
+
+                    <!-- Single Session Add -->
+                    <div class="form-group">
+                        <label>Add a single Session (Day & Time)</label>
+                        <div class="days-checkbox">
+                            <div class="day-checkbox"><input type="radio" name="sessionDay" value="MO" id="sessionMon"><label for="sessionMon">Monday</label></div>
+                            <div class="day-checkbox"><input type="radio" name="sessionDay" value="TU" id="sessionTue"><label for="sessionTue">Tuesday</label></div>
+                            <div class="day-checkbox"><input type="radio" name="sessionDay" value="WE" id="sessionWed"><label for="sessionWed">Wednesday</label></div>
+                            <div class="day-checkbox"><input type="radio" name="sessionDay" value="TH" id="sessionThu"><label for="sessionThu">Thursday</label></div>
+                            <div class="day-checkbox"><input type="radio" name="sessionDay" value="FR" id="sessionFri"><label for="sessionFri">Friday</label></div>
+                        </div>
+                        <div class="time-inputs" style="margin-top:0.5rem">
+                            <div><label for="sessionStart">Start</label><input type="time" id="sessionStart"></div>
+                            <div><label for="sessionEnd">End</label><input type="time" id="sessionEnd"></div>
+                        </div>
+                        <button type="button" id="addSessionBtn" style="margin-top:0.5rem">Add Session</button>
+                    </div>
+
+                    <ul id="sessionList" style="margin-top:0.5rem; font-size:0.9rem; color:#555;"></ul>
+
+                    <button type="submit" class="btn-success">Add to Schedule</button>
+                </form>
+                <div class="schedule-preview">
+                    <h2 class="panel-title">Your Subjects</h2>
+                    <div id="subjectList" class="subject-list">
+                        <div class="empty-state">No subjects added yet. Use the form to add your first class!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <h2 class="panel-title">Export Instructions</h2>
+                <div class="form-group"><label for="semesterStart">Semester Start Date</label><input type="date" id="semesterStart" required></div>
+                <div class="form-group"><label for="semesterEnd">Semester End Date</label><input type="date" id="semesterEnd" required></div>
+                <div class="form-group"><label for="timezone">Timezone</label>
+                    <select id="timezone">
+                        <option value="Europe/London">Europe/London (GMT/BST)</option>
+                        <option value="America/New_York">America/New_York (EST/EDT)</option>
+                        <option value="America/Chicago">America/Chicago (CST/CDT)</option>
+                        <option value="America/Denver">America/Denver (MST/MDT)</option>
+                        <option value="America/Los_Angeles">America/Los_Angeles (PST/PDT)</option>
+                        <option value="UTC">UTC</option>
+                    </select>
+                </div>
+                <div class="actions"><button id="generateBtn" class="btn-large">Generate ICS File</button></div>
+            </div>
+        </div>
+    </div>
+<script src="ICS_Form.js"></script>
+</body>
+</html>
+
+

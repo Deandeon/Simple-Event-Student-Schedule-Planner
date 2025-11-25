@@ -1,0 +1,110 @@
+     @import  url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+    
+        :root {
+            --primary: #e73b3b;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --success: #0c3786;
+            --light: #fbfdff;
+            --dark: #1b1b1c;
+            --gray: #000000;
+            --border: #ff0000;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        * {
+             box-sizing: border-box;
+              margin: 0; 
+              padding: 0;
+             }
+        body 
+        { font-family: 'Inter', 
+            sans-serif;
+            background: linear-gradient(135deg, #020e21 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6; 
+            min-height: 100vh;
+            padding: 20px; }
+
+        .app-container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 12px; box-shadow: var(--card-shadow); }
+        h1 { color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--gray); font-weight: 400; }
+        .panels-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media (max-width: 900px) { .panels-container { grid-template-columns: 1fr; } }
+        .panel { background: rgb(151, 147, 147); border-radius: 12px; padding: 1.5rem; box-shadow: var(--card-shadow); }
+        .panel-title { font-size: 1.25rem; color: var(--primary); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light); }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark); }
+        input, select { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .time-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .days-checkbox { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+        @media (max-width: 600px) { .days-checkbox { grid-template-columns: repeat(2, 1fr); } }
+        .day-checkbox label { display: flex; align-items: center; font-weight: normal; margin-bottom: 0; gap: 0.5rem; cursor: pointer; }
+
+    
+        .day-checkbox input[type="checkbox"] {
+            
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+           
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid rgba(0,0,0,0.08);
+            background: linear-gradient(180deg, #ffffff, #f3f5f7);
+            box-shadow: 0 2px 6px rgba(11,22,36,0.06) inset;
+            transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+            flex: 0 0 auto;
+            display: inline-block;
+            vertical-align: middle;
+
+          
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 60% 60%;
+            margin-right: 0.25rem;
+        }
+
+        .day-checkbox input[type="checkbox"]:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(11,22,36,0.08) inset;
+        }
+
+       
+        .day-checkbox input[type="checkbox"]:checked {
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        .day-checkbox input[type="checkbox"]:checked {
+           
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'><polyline points='1 6 4 9 11 1' stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+        }
+
+
+        .day-checkbox input[type="checkbox"]:focus {
+            outline: 3px solid rgba(10, 10, 11, 0.18);
+            outline-offset: 3px;
+        }
+
+        
+        .day-checkbox label { color: var(--dark); }
+        button { background-color: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; transition: background 0.2s; }
+        button:hover { background-color: var(--primary-dark); }
+        .btn-success { background-color: var(--success); }
+        .btn-success:hover { background-color: #05c290; }
+        .subject-list { max-height: 400px; overflow-y: auto; }
+        .subject-item { background: var(--light); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; border-left: 4px solid var(--primary); }
+        .subject-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .subject-name { font-weight: 600; color: var(--primary); }
+        .subject-times { font-size: 0.9rem; color: var(--gray); }
+        .subject-actions { display: flex; gap: 0.5rem; }
+        .btn-small { padding: 0.25rem 0.5rem; font-size: 0.875rem; }
+        .btn-remove { background-color: #e63946; }
+        .schedule-preview { margin-top: 1.5rem; }
+        .actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        .btn-large { padding: 1rem 2rem; font-size: 1.1rem; }
+        .empty-state { text-align: center; padding: 2rem; color: var(--gray); }
+ 
